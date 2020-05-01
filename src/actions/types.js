@@ -1,0 +1,9 @@
+export const AXIOS_USERS = 'AXIOS_USERS';
+export const BEGIN_LOAD_AXIOS_USERS = 'BEGIN_LOAD_AXIOS_USERS';
+export const ERROR_LOAD_AXIOS_USERS = 'ERROR_LOAD_AXIOS_USERS';
+export const DELETE_USER = 'DELETE_USERS';
+export const ADD_USER = 'ADD_USER';
+
+export const REGISTER_USER = 'REGISTER_USER';
+export const LOGIN_USER = 'LOGIN_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';

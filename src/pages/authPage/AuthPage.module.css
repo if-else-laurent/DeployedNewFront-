@@ -1,0 +1,54 @@
+.container {
+  background-color: rgb(50, 61, 61);
+  padding: 20px;
+  margin: 8px;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+.header    {
+  background-color: rgba(0, 0, 0, 0.527);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: orange solid;
+  text-align: center;
+}
+
+.inner {
+  background-color: rgba(0, 0, 0, 0.527);
+  padding: 10px;
+}
+
+.form {
+  display: grid;
+}
+
+.button    {
+  padding: 2px;
+  text-decoration: none;
+  border: solid;
+  right: 5px;
+  top:6px;
+  color: orange;
+  background-color: black;
+  margin-left: 10px;
+  width: 70px;
+  margin: 10px 5px;
+  position: relative;
+}
+
+.button:hover {
+  background-color: orange;
+  color: black;
+  border: solid orange;
+}
+
+.button_container {
+  display: inline-block;
+  margin-left: 220px;
+}
+
+input {
+  border: black solid;
+}

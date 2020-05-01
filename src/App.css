@@ -1,0 +1,28 @@
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+ h1, h2, h4, h5, h6 {
+    color: orange;
+}
+
+body {
+    
+    background: url(./img/background.jpg) center no-repeat;
+    background-size: cover;
+    background-attachment:fixed;
+}
+
+.app {
+    color: white; 
+}
+
+.mainPage  {
+    width: 1500px;
+    margin: auto;
+}
+
+.orange {
+    color: orange;
+}
+    

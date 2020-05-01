@@ -1,0 +1,11 @@
+.container   {
+  background-color: rgb(50, 61, 61);
+  font-size: 20px;
+  padding: 20px;
+  margin-left: 10px;
+}
+
+.inner  {
+  background-color: rgba(0, 0, 0, 0.527);
+  padding: 10px;
+}

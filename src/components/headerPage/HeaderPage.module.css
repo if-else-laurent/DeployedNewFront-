@@ -1,0 +1,23 @@
+.container   {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.527);
+  padding: 10px;
+  font-size: 18px;
+  border-bottom: solid orange;
+  position: relative;
+}
+
+.avatar img {
+  width: 250px;
+  border-radius: 5%;
+}
+
+.containerItem   {
+  margin: 10px;
+}
+
+.buttonReturn  {
+  font-size: 16px;
+  right: 15px;
+  position: absolute;
+}

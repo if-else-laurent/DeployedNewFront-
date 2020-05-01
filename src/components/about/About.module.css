@@ -1,0 +1,14 @@
+.container {
+  border: black solid;
+  padding: 10px;
+}
+
+.header    {
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.527);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

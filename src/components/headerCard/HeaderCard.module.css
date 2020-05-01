@@ -1,0 +1,34 @@
+.container {
+  background-color: rgb(50, 61, 61);
+}
+
+.inner {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.527);
+  padding: 10px;
+  font-size: 18px;
+  border-bottom: solid orange;
+  position: relative;
+}
+
+.inner__item   {
+  margin: 0 10px;
+}
+
+.avatar img {
+  width: 60px;
+  border-radius: 50%;
+}
+
+.deleteButton   {
+  background-color: rgba(0, 0, 0, 0.527);
+  border: solid orange;
+  position: absolute;
+  right: 12px;
+  top: 10px;
+}
+
+.deleteButton:hover {
+  background-color: orange;
+  color: black;
+}
