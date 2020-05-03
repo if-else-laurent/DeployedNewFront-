@@ -1,10 +1,9 @@
 import React from 'react'
-import Infinity from '../../img/LoadInf.gif'
+import LoadingStyle from './Loading.module.css'
 
 const Loading = () => {
   return (
-    <div>
-      <img src={Infinity} alt='loading'></img>
+    <div className={LoadingStyle.loader}>
     </div>
   )
 }

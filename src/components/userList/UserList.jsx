@@ -3,12 +3,12 @@ import SearchUser from '../searchUser/SearchUser';
 import UserCard from '../userCard/UserCard';
 import NotFound from '../notFound/NotFound';
 import AddUser from '../addUser/AddUser';
-// import Loading from '../loading/Loading';
 
 import UserListStyle from './UserList.module.css';
 
 import { connect } from 'react-redux';
 import { axiosUsers } from '../../actions/userActions';
+import Loading from '../loading/Loading';
 
 
 const UserList = (props) => {
@@ -23,14 +23,8 @@ const UserList = (props) => {
     <div>
       <SearchUser setResSearch={setResSearch} />
       <AddUser token={token} />
+      {loading && <Loading />}
       <div className={UserListStyle.container}>
-        {/* {users ? (
-          filtredUsers.length ? (
-            filtredUsers.map((user) => <UserCard key={user.id} user={user} />)
-          ) : (<NotFound />)
-        ) : (<p> Loading... </p>)} */}
-
-
         {filtredUsers.length ? (filtredUsers.map((user) => <UserCard key={user._id} user={user} token={token} />)) : (<NotFound />)}
       </div>
     </div>
