@@ -24,9 +24,10 @@ const UserList = (props) => {
       <SearchUser setResSearch={setResSearch} />
       <AddUser token={token} />
       {loading && <Loading />}
-      <div className={UserListStyle.container}>
-        {filtredUsers.length ? (filtredUsers.map((user) => <UserCard key={user._id} user={user} token={token} />)) : (<NotFound />)}
-      </div>
+      {!loading &&
+        <div className={UserListStyle.container}>
+          {filtredUsers.length ? (filtredUsers.map((user) => <UserCard key={user._id} user={user} token={token} />)) : (<NotFound />)}
+        </div>}
     </div>
   )
 }
