@@ -4,8 +4,11 @@ import {
   ADD_USER,
   BEGIN_LOAD_AXIOS_USERS,
   ERROR_LOAD_AXIOS_USERS,
+  ERROR_REGISTER_USER,
   REGISTER_USER,
+  BEGIN_LOGIN_USER,
   LOGIN_USER,
+  ERROR_LOGIN_USER,
   LOGOUT_USER,
 } from './types'
 import axios from 'axios';
@@ -82,10 +85,11 @@ export const registerUser = (newUser) => {
       const res = await axios.post(`${process.env.REACT_APP_API}/auth/register`, newUser)
       dispatch({
         type: REGISTER_USER,
+        payload: 'Registration successful',
       })
     }
     catch (err) {
-
+      dispatch({ type: ERROR_REGISTER_USER, payload: err })
     }
   }
 }
@@ -93,6 +97,7 @@ export const registerUser = (newUser) => {
 export const loginUser = (user) => {
   return async dispatch => {
     try {
+      dispatch({ type: BEGIN_LOGIN_USER })
       const res = await axios.post(`${process.env.REACT_APP_API}/auth/login`, user)
       dispatch({
         type: LOGIN_USER,
@@ -100,7 +105,7 @@ export const loginUser = (user) => {
       })
     }
     catch (err) {
-
+      dispatch({ type: ERROR_LOGIN_USER, payload: 'Uncorrect data' })
     }
   }
 }

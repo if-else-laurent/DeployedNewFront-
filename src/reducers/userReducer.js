@@ -4,8 +4,11 @@ import {
   ADD_USER,
   BEGIN_LOAD_AXIOS_USERS,
   ERROR_LOAD_AXIOS_USERS,
+  ERROR_REGISTER_USER,
   REGISTER_USER,
+  BEGIN_LOGIN_USER,
   LOGIN_USER,
+  ERROR_LOGIN_USER,
   LOGOUT_USER,
 } from '../actions/types'
 
@@ -14,6 +17,8 @@ const initialState = {
   loading: true,
   error: false,
   token: null,
+  loginLoading: false,
+  message: '',
 }
 
 export default function (state = initialState, action) {
@@ -53,10 +58,28 @@ export default function (state = initialState, action) {
       return {
         ...state
       }
+    case ERROR_REGISTER_USER:
+      return {
+        ...state,
+        error: action.payloads
+      }
+    case BEGIN_LOGIN_USER:
+      return {
+        ...state,
+        loginLoading: true
+      }
     case LOGIN_USER:
       return {
         ...state,
-        token: action.payload
+        token: action.payload,
+        loginLoading: false,
+        error: false,
+      }
+    case ERROR_LOGIN_USER:
+      return {
+        ...state,
+        loginLoading: false,
+        error: action.payload,
       }
     case LOGOUT_USER:
       return {

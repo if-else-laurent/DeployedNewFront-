@@ -11,7 +11,7 @@ import AuthPage from './pages/authPage/AuthPage';
 
 
 const App = (props) => {
-  const { axiosUsers, users, token } = props;
+  const { axiosUsers, users, token, loginLoading } = props;
 
   if (!!token) {
     return (
@@ -29,7 +29,7 @@ const App = (props) => {
     <Router>
       <div className='app'>
         <div className='mainPage'>
-          <Route exact path='/auth' render={(props) => <AuthPage {...props} />} />
+          <Route exact path='/auth' render={(props) => <AuthPage {...props} loginLoading={loginLoading} />} />
           <Redirect to='/auth' />
         </div>
       </div>
@@ -41,6 +41,7 @@ const App = (props) => {
 const mapStateToProps = (state) => ({
   users: state.userReducer.users,
   token: state.userReducer.token,
+  loginLoading: state.userReducer.loginLoading,
 })
 
 const mapActions = { axiosUsers };
