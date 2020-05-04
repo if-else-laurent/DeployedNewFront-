@@ -56,7 +56,8 @@ export default function (state = initialState, action) {
       }
     case REGISTER_USER:
       return {
-        ...state
+        ...state,
+        message: action.payload,
       }
     case ERROR_REGISTER_USER:
       return {
