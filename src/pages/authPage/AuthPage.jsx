@@ -6,7 +6,7 @@ import Loading from '../../components/loading/Loading';
 import Message from '../../components/message/Message';
 
 const AuthPage = (props) => {
-  const { loginLoading, message } = props;
+  const { loginLoading, message, error } = props;
 
   const dispatch = useDispatch();
 
@@ -32,7 +32,7 @@ const AuthPage = (props) => {
             <input type='email' name='email' onChange={(e) => changeHandler(e)} />
             <label htmlFor='password'> Password: </label>
             <input type='password' name='password' onChange={(e) => changeHandler(e)} />
-            <Message message={message} />
+            <Message message={message} error={error} />
             <div className={AuthPageStyle.button_container}>
               <button className={AuthPageStyle.button} onClick={() => dispatch(loginUser(form))}> Log in </button>
               <button className={AuthPageStyle.button} onClick={() => dispatch(registerUser(form))}> Register </button>
