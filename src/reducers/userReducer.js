@@ -57,6 +57,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         loginLoading: true,
+        error: null,
       }
     case REGISTER_USER:
       return {
