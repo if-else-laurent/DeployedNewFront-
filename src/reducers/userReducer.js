@@ -56,18 +56,21 @@ export default function (state = initialState, action) {
       return {
         ...state,
         message: action.payload,
+        error: null,
+        message: null,
       }
     case ERROR_REGISTER_USER:
       return {
         ...state,
         error: action.payloads,
-        message: ''
+        message: null,
       }
     case BEGIN_LOGIN_USER:
       return {
         ...state,
         loginLoading: true,
-        message: '',
+        message: null,
+        error: null,
       }
     case LOGIN_USER:
       return {
@@ -82,6 +85,7 @@ export default function (state = initialState, action) {
         ...state,
         loginLoading: false,
         error: action.payload,
+        message: null,
       }
     case LOAD_TOKEN:
       return {
