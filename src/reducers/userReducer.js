@@ -75,7 +75,7 @@ export default function (state = initialState, action) {
     case LOGIN_USER:
       return {
         ...state,
-        token: action.payload,
+        token: action.payload.token,
         userId: action.payload.userId,
         loginLoading: false,
         error: false,
