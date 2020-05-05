@@ -21,6 +21,7 @@
 }
 
 .deleteButton   {
+  cursor: pointer;
   background-color: rgba(0, 0, 0, 0.527);
   border: solid orange;
   position: absolute;
