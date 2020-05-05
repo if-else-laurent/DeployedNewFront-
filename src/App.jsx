@@ -17,7 +17,7 @@ const App = (props) => {
     loadToken();
   }, []);
 
-  if (true) {
+  if (!!token) {
     return (
       <Router>
         <div className='app'>
