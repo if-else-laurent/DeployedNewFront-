@@ -5,3 +5,8 @@
   padding-top: 4px;
   margin-left: 4px;
 }
+
+.header {
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+}

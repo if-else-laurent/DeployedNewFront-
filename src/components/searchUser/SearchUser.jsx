@@ -14,7 +14,6 @@ const SearchUser = (props) => {
       <div className={SearchUserStyle.inner}>
         Name: <input className='search__inner__input' type='text' onChange={(e) => setResSearch(e.target.value)} />
       </div>
-      <button className={SearchUserStyle.button} onClick={() => dispatch(logOutUser())} > Log Out </button>
     </div>
   )
 }

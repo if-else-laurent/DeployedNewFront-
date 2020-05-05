@@ -9,6 +9,7 @@ import UserListStyle from './UserList.module.css';
 import { connect } from 'react-redux';
 import { axiosUsers } from '../../actions/userActions';
 import Loading from '../loading/Loading';
+import Logout from '../logout/Logout';
 
 
 const UserList = (props) => {
@@ -21,7 +22,10 @@ const UserList = (props) => {
 
   return (
     <div>
-      <SearchUser setResSearch={setResSearch} />
+      <div className={UserListStyle.header}>
+        <SearchUser setResSearch={setResSearch} />
+        <Logout />
+      </div>
       <AddUser token={token} />
       {loading && <Loading />}
       {!loading &&

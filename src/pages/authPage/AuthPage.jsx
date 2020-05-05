@@ -29,9 +29,9 @@ const AuthPage = (props) => {
         <div className={AuthPageStyle.inner}>
           <form onSubmit={handleSubmit} className={AuthPageStyle.form}>
             <label htmlFor='email'> Email: </label>
-            <input type='email' name='email' onChange={(e) => changeHandler(e)} />
+            <input disabled={loginLoading} type='email' name='email' onChange={(e) => changeHandler(e)} />
             <label htmlFor='password'> Password: </label>
-            <input type='password' name='password' onChange={(e) => changeHandler(e)} />
+            <input disabled={loginLoading} type='password' name='password' onChange={(e) => changeHandler(e)} />
             <Message message={message} error={error} />
             <div className={AuthPageStyle.button_container}>
               <button className={AuthPageStyle.button} onClick={() => dispatch(loginUser(form))}> Log in </button>
