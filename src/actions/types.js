@@ -10,4 +10,6 @@ export const ERROR_REGISTER_USER = 'ERROR_REGISTER_USER'
 export const BEGIN_LOGIN_USER = 'BEGIN_LOGIN_USER'
 export const LOGIN_USER = 'LOGIN_USER';
 export const ERROR_LOGIN_USER = 'ERROR_LOGIN_USER'
+export const LOAD_TOKEN = 'LOAD_TOKEN'
+
 export const LOGOUT_USER = 'LOGOUT_USER';

@@ -10,6 +10,7 @@ import {
   LOGIN_USER,
   ERROR_LOGIN_USER,
   LOGOUT_USER,
+  LOAD_TOKEN,
 } from './types'
 import axios from 'axios';
 
@@ -89,7 +90,7 @@ export const registerUser = (newUser) => {
       })
     }
     catch (err) {
-      dispatch({ type: ERROR_REGISTER_USER, payload: err })
+      dispatch({ type: ERROR_REGISTER_USER, payload: 'Error registration' })
     }
   }
 }
@@ -99,6 +100,9 @@ export const loginUser = (user) => {
     try {
       dispatch({ type: BEGIN_LOGIN_USER })
       const res = await axios.post(`${process.env.REACT_APP_API}/auth/login`, user)
+
+      const token = res.data
+      localStorage.setItem('userData', JSON.stringify({ token }))
       dispatch({
         type: LOGIN_USER,
         payload: res.data
@@ -110,9 +114,29 @@ export const loginUser = (user) => {
   }
 }
 
+export const loadToken = () => {
+  return async dispatch => {
+    try {
+      const data = JSON.parse(localStorage.getItem('userData'))
+      console.log('loadtoken', data)
+      if (data && data.token) {
+        dispatch({
+          type: LOAD_TOKEN,
+          payload: data.token
+        })
+      }
+
+    }
+    catch (err) {
+
+    }
+  }
+}
+
 export const logOutUser = () => {
   return async dispatch => {
     try {
+      localStorage.removeItem('userData')
       dispatch({
         type: LOGOUT_USER,
         payload: null

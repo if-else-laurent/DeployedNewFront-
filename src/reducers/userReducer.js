@@ -10,6 +10,7 @@ import {
   LOGIN_USER,
   ERROR_LOGIN_USER,
   LOGOUT_USER,
+  LOAD_TOKEN,
 } from '../actions/types'
 
 const initialState = {
@@ -83,6 +84,11 @@ export default function (state = initialState, action) {
         ...state,
         loginLoading: false,
         error: action.payload,
+      }
+    case LOAD_TOKEN:
+      return {
+        ...state,
+        token: action.payload
       }
     case LOGOUT_USER:
       return {

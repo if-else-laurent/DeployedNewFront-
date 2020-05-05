@@ -5,13 +5,17 @@ import UserPage from './pages/userPage/UserPage';
 import UsersPage from './pages/usersPage/UsersPage';
 
 import { connect } from 'react-redux';
-import { axiosUsers } from '../src/actions/userActions';
+import { axiosUsers, loadToken } from '../src/actions/userActions';
 import AuthPage from './pages/authPage/AuthPage';
 
 
 
 const App = (props) => {
-  const { axiosUsers, users, token, loginLoading, message, error } = props;
+  const { axiosUsers, users, token, loginLoading, message, error, loadToken } = props;
+
+  useEffect(() => {
+    loadToken();
+  }, []);
 
   if (!!token) {
     return (
@@ -46,6 +50,6 @@ const mapStateToProps = (state) => ({
   message: state.userReducer.message
 })
 
-const mapActions = { axiosUsers };
+const mapActions = { axiosUsers, loadToken };
 
 export default connect(mapStateToProps, mapActions)(App); // Connect(props, откуда props)(component который подключаеться)
