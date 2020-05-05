@@ -76,6 +76,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         token: action.payload,
+        userId: action.payload.userId,
         loginLoading: false,
         error: false,
       }
@@ -94,6 +95,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         token: null,
+        userId: null,
         message: action.payload,
       }
     default:

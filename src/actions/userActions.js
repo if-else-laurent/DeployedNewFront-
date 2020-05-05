@@ -63,8 +63,11 @@ export function deleteUser(id, token) {
 export function addUser(newUser, token) {
   return async dispatch => {
     try {
+      const data = JSON.parse(localStorage.getItem('userData'))
+      const user = { ...newUser, owner: data.userId }
+
       const headers = { authToken: token }
-      const res = await axios.post(`${process.env.REACT_APP_API}/add`, newUser, {
+      const res = await axios.post(`${process.env.REACT_APP_API}/add`, user, {
         headers: headers
       })
       dispatch({
@@ -102,7 +105,9 @@ export const loginUser = (user) => {
       const res = await axios.post(`${process.env.REACT_APP_API}/auth/login`, user)
 
       const token = res.data
-      localStorage.setItem('userData', JSON.stringify({ token }))
+      const userId = res.data.userId
+
+      localStorage.setItem('userData', JSON.stringify({ token, userId }))
       dispatch({
         type: LOGIN_USER,
         payload: res.data
