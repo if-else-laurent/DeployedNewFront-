@@ -13,7 +13,7 @@ import AuthPage from './pages/authPage/AuthPage';
 const App = (props) => {
   const { axiosUsers, users, token, loginLoading, message, error } = props;
 
-  if (true) {
+  if (!!token) {
     return (
       <Router>
         <div className='app'>
