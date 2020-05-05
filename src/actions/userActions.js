@@ -5,12 +5,14 @@ import {
   BEGIN_LOAD_AXIOS_USERS,
   ERROR_LOAD_AXIOS_USERS,
   ERROR_REGISTER_USER,
+  BEGIN_REGISTER_USER,
   REGISTER_USER,
   BEGIN_LOGIN_USER,
   LOGIN_USER,
   ERROR_LOGIN_USER,
   LOGOUT_USER,
   LOAD_TOKEN,
+
 } from './types'
 import axios from 'axios';
 
@@ -82,6 +84,7 @@ export function addUser(newUser, token) {
 export const registerUser = (newUser) => {
   return async dispatch => {
     try {
+      dispatch({ type: BEGIN_REGISTER_USER })
       const res = await axios.post(`${process.env.REACT_APP_API}/auth/register`, newUser)
       dispatch({
         type: REGISTER_USER,

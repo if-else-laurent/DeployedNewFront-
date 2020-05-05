@@ -5,6 +5,7 @@ import {
   BEGIN_LOAD_AXIOS_USERS,
   ERROR_LOAD_AXIOS_USERS,
   ERROR_REGISTER_USER,
+  BEGIN_REGISTER_USER,
   REGISTER_USER,
   BEGIN_LOGIN_USER,
   LOGIN_USER,
@@ -52,17 +53,24 @@ export default function (state = initialState, action) {
         ...state,
         users: action.payload
       }
+    case BEGIN_REGISTER_USER:
+      return {
+        ...state,
+        loginLoading: true,
+      }
     case REGISTER_USER:
       return {
         ...state,
         error: null,
         message: action.payload,
+        loginLoading: false,
       }
     case ERROR_REGISTER_USER:
       return {
         ...state,
         error: action.payload,
         message: '',
+        loginLoading: false,
       }
     case BEGIN_LOGIN_USER:
       return {
