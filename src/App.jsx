@@ -11,13 +11,13 @@ import AuthPage from './pages/authPage/AuthPage';
 
 
 const App = (props) => {
-  const { axiosUsers, users, token, loginLoading, message, error, loadToken } = props;
+  const { axiosUsers, token, loginLoading, message, error, loadToken } = props;
 
   useEffect(() => {
     loadToken();
   }, []);
 
-  if (!!token) {
+  if (true) {
     return (
       <Router>
         <div className='app'>
@@ -43,7 +43,6 @@ const App = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  users: state.userReducer.users,
   token: state.userReducer.token,
   loginLoading: state.userReducer.loginLoading,
   error: state.userReducer.error,

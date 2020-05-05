@@ -25,6 +25,7 @@
 }
 
 .button    {
+  cursor: pointer;
   padding: 2px;
   text-decoration: none;
   border: solid;
