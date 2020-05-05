@@ -89,7 +89,7 @@ export const registerUser = (newUser) => {
       })
     }
     catch (err) {
-      dispatch({ type: ERROR_REGISTER_USER, payload: 'Error registration' })
+      dispatch({ type: ERROR_REGISTER_USER, payload: 'Registration failed' })
     }
   }
 }

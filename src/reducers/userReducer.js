@@ -55,15 +55,14 @@ export default function (state = initialState, action) {
     case REGISTER_USER:
       return {
         ...state,
-        message: action.payload,
         error: null,
-        message: null,
+        message: action.payload,
       }
     case ERROR_REGISTER_USER:
       return {
         ...state,
-        error: action.payloads,
-        message: null,
+        error: action.payload,
+        message: '',
       }
     case BEGIN_LOGIN_USER:
       return {
@@ -78,7 +77,6 @@ export default function (state = initialState, action) {
         token: action.payload.token,
         userId: action.payload.userId,
         loginLoading: false,
-        error: false,
       }
     case ERROR_LOGIN_USER:
       return {
@@ -97,7 +95,6 @@ export default function (state = initialState, action) {
         ...state,
         token: null,
         userId: null,
-        message: action.payload,
       }
     default:
       return state;
