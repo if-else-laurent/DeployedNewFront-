@@ -104,7 +104,7 @@ export const loginUser = (user) => {
       dispatch({ type: BEGIN_LOGIN_USER })
       const res = await axios.post(`${process.env.REACT_APP_API}/auth/login`, user)
 
-      const token = res.data
+      const token = res.data.token
       const userId = res.data.userId
 
       localStorage.setItem('userData', JSON.stringify({ token, userId }))
