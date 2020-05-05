@@ -1,12 +1,9 @@
 import React from 'react';
 import SearchUserStyle from './SearchUser.module.css'
-import { searchUser, logOutUser } from '../../actions/userActions';
-import { useDispatch } from 'react-redux';
 
 const SearchUser = (props) => {
   const { setResSearch } = props;
 
-  const dispatch = useDispatch();
 
   return (
     <div className={SearchUserStyle.container}>

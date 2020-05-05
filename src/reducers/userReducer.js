@@ -37,7 +37,6 @@ export default function (state = initialState, action) {
         error: false,
       }
     case ERROR_LOAD_AXIOS_USERS:
-      console.log('Error load users')
       return {
         ...state,
         loading: false,
@@ -47,13 +46,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         users: action.payload
-        // users: state.users.filter((user) => user._id !== action.payload)
       }
     case ADD_USER:
       return {
         ...state,
         users: action.payload
-        // users: [action.payload, ...state.users]
       }
     case REGISTER_USER:
       return {

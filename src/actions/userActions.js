@@ -21,11 +21,9 @@ export function axiosUsers(token) {
     try {
       dispatch({ type: BEGIN_LOAD_AXIOS_USERS });
       const headers = { authToken: token }
-      // const res = await axios.get('/api/', {
       const res = await axios.get(`${process.env.REACT_APP_API}/`, {
         headers: headers
       })
-      console.log('res', res)
       dispatch({
         type: AXIOS_USERS,
         payload: res.data.reverse(),
@@ -42,12 +40,10 @@ export function axiosUsers(token) {
 export function deleteUser(id, token) {
   return async dispatch => {
     try {
-      // const res = await axios.delete('http://localhost:5000/' + id)
       const headers = { authToken: token }
       const res = await axios.delete(`${process.env.REACT_APP_API}/` + id, {
         headers: headers
       })
-      console.log('res', res)
       dispatch({
         type: DELETE_USER,
         payload: res.data.reverse()
@@ -123,7 +119,6 @@ export const loadToken = () => {
   return async dispatch => {
     try {
       const data = JSON.parse(localStorage.getItem('userData'))
-      console.log('loadtoken', data)
       if (data && data.token) {
         dispatch({
           type: LOAD_TOKEN,

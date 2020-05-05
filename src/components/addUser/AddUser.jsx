@@ -23,7 +23,6 @@ const AddUser = (props) => {
     e.preventDefault();
     if (name && email) {
       dispatch(addUser({ name, username, email }, token));
-      // window.location = '/';  //Перенаправляет на homePage( '/' )
     }
     return
   }
