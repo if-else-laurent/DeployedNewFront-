@@ -13,7 +13,7 @@ import Logout from '../logout/Logout';
 
 
 const UserList = (props) => {
-  const { users, loading, token } = props;
+  const { users, loading, token, email } = props;
 
 
   const [resSearch, setResSearch] = useState('');
@@ -24,7 +24,7 @@ const UserList = (props) => {
     <div>
       <div className={UserListStyle.header}>
         <SearchUser setResSearch={setResSearch} />
-        <Logout />
+        <Logout email={email} />
       </div>
       <AddUser token={token} />
       {loading && <Loading />}
@@ -44,6 +44,7 @@ const mapStateToProps = (state) => ({
   users: state.userReducer.users,
   loading: state.userReducer.loading,
   token: state.userReducer.token,
+  email: state.userReducer.email,
 })
 
 const mapActions = { axiosUsers };

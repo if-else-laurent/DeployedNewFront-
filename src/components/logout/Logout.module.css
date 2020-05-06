@@ -14,6 +14,11 @@
 .inner {
   background-color: rgba(0, 0, 0, 0.527);
   padding: 10px;
+  position: relative;
+}
+
+.item {
+  display: inline;
 }
 
 .button    {
@@ -23,6 +28,8 @@
   border: solid;
   color: orange;
   background-color: black;
+  position: absolute;
+  right: 10px;
 
 }
 

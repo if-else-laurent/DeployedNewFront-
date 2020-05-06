@@ -3,14 +3,16 @@ import LogoutStyle from './Logout.module.css'
 import { logOutUser } from '../../actions/userActions';
 import { useDispatch } from 'react-redux';
 
-const Logout = () => {
+const Logout = (props) => {
+  const { email } = props
   const dispatch = useDispatch()
 
   return (
     <div className={LogoutStyle.container}>
       <h2 className={LogoutStyle.header}> Profile </h2>
       <div className={LogoutStyle.inner}>
-        <button className={LogoutStyle.button} onClick={() => dispatch(logOutUser())} > Log Out </button>
+        <p className={LogoutStyle.item}> {email} </p>
+        <button className={`${LogoutStyle.button} ${LogoutStyle.item}`} onClick={() => dispatch(logOutUser())} > Log Out </button>
       </div>
 
     </div>
