@@ -11,7 +11,7 @@ const Logout = (props) => {
     <div className={LogoutStyle.container}>
       <h2 className={LogoutStyle.header}> Profile </h2>
       <div className={LogoutStyle.inner}>
-        <p className={`${LogoutStyle.item} ${LogoutStyle.email}`}> apofiuz@gmail.com </p>
+        <p className={`${LogoutStyle.item} ${LogoutStyle.email}`}> {email} </p>
         <button className={`${LogoutStyle.button} ${LogoutStyle.item}`} onClick={() => dispatch(logOutUser())} > Log Out </button>
       </div>
 
