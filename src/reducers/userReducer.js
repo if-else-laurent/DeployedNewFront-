@@ -106,6 +106,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         token: null,
+        email: null,
         userId: null,
         error: null,
         message: null
