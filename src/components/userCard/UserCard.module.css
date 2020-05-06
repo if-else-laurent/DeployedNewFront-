@@ -1,6 +1,6 @@
 .container {
   background-color: rgb(50, 61, 61);
   padding: 20px;
-  width: 696px;
+  min-width: 500px;
   margin: 4px;
 }

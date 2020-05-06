@@ -3,7 +3,8 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 2px;
   padding-top: 4px;
-  margin-left: 4px;
+  max-width: 1492px;
+  margin: 4px;
 }
 
 .header {
