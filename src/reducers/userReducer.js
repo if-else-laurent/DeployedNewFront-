@@ -20,7 +20,8 @@ const initialState = {
   error: false,
   token: null,
   loginLoading: false,
-  message: '',
+  message: null,
+  email: null,
 }
 
 export default function (state = initialState, action) {
@@ -85,6 +86,7 @@ export default function (state = initialState, action) {
         ...state,
         token: action.payload.token,
         userId: action.payload.userId,
+        email: action.payload.email,
         loginLoading: false,
       }
     case ERROR_LOGIN_USER:
@@ -97,13 +99,16 @@ export default function (state = initialState, action) {
     case LOAD_TOKEN:
       return {
         ...state,
-        token: action.payload
+        token: action.payload.token,
+        email: action.payload.email,
       }
     case LOGOUT_USER:
       return {
         ...state,
         token: null,
         userId: null,
+        error: null,
+        message: null
       }
     default:
       return state;

@@ -105,8 +105,9 @@ export const loginUser = (user) => {
 
       const token = res.data.token
       const userId = res.data.userId
+      const email = res.data.email
+      localStorage.setItem('userData', JSON.stringify({ token, userId, email }))
 
-      localStorage.setItem('userData', JSON.stringify({ token, userId }))
       dispatch({
         type: LOGIN_USER,
         payload: res.data
@@ -125,7 +126,7 @@ export const loadToken = () => {
       if (data && data.token) {
         dispatch({
           type: LOAD_TOKEN,
-          payload: data.token
+          payload: data
         })
       }
 
@@ -142,7 +143,7 @@ export const logOutUser = () => {
       localStorage.removeItem('userData')
       dispatch({
         type: LOGOUT_USER,
-        payload: null
+        payload: null,
       })
     }
     catch (err) {
