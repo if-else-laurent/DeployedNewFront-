@@ -30,7 +30,10 @@
   background-color: black;
   position: absolute;
   right: 10px;
+}
 
+.email {
+  text-decoration: underline;
 }
 
 .button:hover {
