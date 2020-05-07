@@ -6,7 +6,8 @@ import UsersPage from './pages/usersPage/UsersPage';
 
 import { connect } from 'react-redux';
 import { axiosUsers, loadToken } from '../src/actions/userActions';
-import AuthPage from './pages/authPage/AuthPage';
+import AuthPage from './pages/authPage/AuthPage'
+import RegisterPage from './pages/registerPage/RegisterPage'
 
 
 
@@ -34,6 +35,7 @@ const App = (props) => {
       <div className='app'>
         <div className='mainPage'>
           <Route exact path='/auth' render={(props) => <AuthPage {...props} loginLoading={loginLoading} message={message} error={error} />} />
+          <Route exact path='/register' render={(props) => <RegisterPage {...props} loginLoading={loginLoading} message={message} error={error} />} />
           <Redirect to='/auth' />
         </div>
       </div>

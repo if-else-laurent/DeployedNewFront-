@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import AuthPageStyle from './AuthPage.module.css'
-import { loginUser } from '../../actions/userActions';
+import React, { useState } from 'react'
+import RegisterPageStyle from './RegisterPage.module.css'
+import { registerUser } from '../../actions/userActions';
 import { useDispatch } from 'react-redux';
 import Message from '../../components/message/Message';
 import Loading from '../../components/loading/Loading';
 import { NavLink } from 'react-router-dom';
 
 
-const AuthPage = (props) => {
+const RegisterPage = (props) => {
   const { error, loginLoading } = props;
 
   const dispatch = useDispatch();
@@ -26,19 +26,21 @@ const AuthPage = (props) => {
 
   return (
     <div>
-      <div className={AuthPageStyle.container}>
-        <header className={AuthPageStyle.header}>
-          <h2 className={`${AuthPageStyle.header__item} ${AuthPageStyle.header__active}`}> Login </h2>
-          <h2 className={AuthPageStyle.header__item}> <NavLink className={AuthPageStyle.navLink} to='/register'> Register </NavLink>  </h2>
+      <div className={RegisterPageStyle.container}>
+        <header className={RegisterPageStyle.header}>
+          <h2 className={RegisterPageStyle.header__item}> <NavLink className={RegisterPageStyle.navLink} to='/auth'> Login </NavLink>  </h2>
+          <h2 className={`${RegisterPageStyle.header__item} ${RegisterPageStyle.header__active}`}> Register </h2>
         </header>
-        <div className={AuthPageStyle.inner}>
-          <form onSubmit={handleSubmit} className={AuthPageStyle.form}>
+        <div className={RegisterPageStyle.inner}>
+          <form onSubmit={handleSubmit} className={RegisterPageStyle.form}>
             <label htmlFor='email'> Email: </label>
             <input disabled={loginLoading} type='email' name='email' onChange={(e) => changeHandler(e)} />
             <label htmlFor='password'> Password: </label>
             <input disabled={loginLoading} type='password' name='password' onChange={(e) => changeHandler(e)} />
             {error && <Message error={error} />}
-            <button disabled={loginLoading} className={AuthPageStyle.button} onClick={() => dispatch(loginUser(form))}> Log in </button>
+            <div className={RegisterPageStyle.button_container}>
+              <button disabled={loginLoading} className={RegisterPageStyle.button} onClick={() => dispatch(registerUser(form))}> Register </button>
+            </div>
           </form>
         </div>
       </div>
@@ -47,4 +49,4 @@ const AuthPage = (props) => {
   )
 }
 
-export default AuthPage
+export default RegisterPage

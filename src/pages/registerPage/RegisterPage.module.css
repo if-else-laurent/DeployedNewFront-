@@ -61,6 +61,10 @@
   border: solid orange;
 }
 
+.button_container {
+  display: inline-block;
+
+}
 
 input {
   border: black solid;
