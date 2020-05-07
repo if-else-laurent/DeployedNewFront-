@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 
 
 const RegisterPage = (props) => {
-  const { error, loginLoading } = props;
+  const { error, loginLoading, message } = props;
 
   const dispatch = useDispatch();
 
@@ -37,10 +37,8 @@ const RegisterPage = (props) => {
             <input disabled={loginLoading} type='email' name='email' onChange={(e) => changeHandler(e)} />
             <label htmlFor='password'> Password: </label>
             <input disabled={loginLoading} type='password' name='password' onChange={(e) => changeHandler(e)} />
-            {error && <Message error={error} />}
-            <div className={RegisterPageStyle.button_container}>
-              <button disabled={loginLoading} className={RegisterPageStyle.button} onClick={() => dispatch(registerUser(form))}> Register </button>
-            </div>
+            {(error || message) && <Message error={error} message={message} />}
+            <button disabled={loginLoading} className={RegisterPageStyle.button} onClick={() => dispatch(registerUser(form))}> Register </button>
           </form>
         </div>
       </div>
