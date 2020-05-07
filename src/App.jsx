@@ -5,14 +5,14 @@ import UserPage from './pages/userPage/UserPage';
 import UsersPage from './pages/usersPage/UsersPage';
 
 import { connect } from 'react-redux';
-import { axiosUsers, loadToken } from '../src/actions/userActions';
+import { axiosUsers, loadToken, clear } from '../src/actions/userActions';
 import AuthPage from './pages/authPage/AuthPage'
 import RegisterPage from './pages/registerPage/RegisterPage'
 
 
 
 const App = (props) => {
-  const { axiosUsers, token, loginLoading, message, error, loadToken } = props;
+  const { axiosUsers, token, loginLoading, message, error, loadToken, clear } = props;
 
   useEffect(() => {
     loadToken();
@@ -34,8 +34,8 @@ const App = (props) => {
     <Router>
       <div className='app'>
         <div className='mainPage'>
-          <Route exact path='/auth' render={(props) => <AuthPage {...props} loginLoading={loginLoading} message={message} error={error} />} />
-          <Route exact path='/register' render={(props) => <RegisterPage {...props} loginLoading={loginLoading} message={message} error={error} />} />
+          <Route exact path='/auth' render={(props) => <AuthPage {...props} loginLoading={loginLoading} message={message} error={error} clear={clear} />} />
+          <Route exact path='/register' render={(props) => <RegisterPage {...props} loginLoading={loginLoading} message={message} error={error} clear={clear} />} />
           <Redirect to='/auth' />
         </div>
       </div>
@@ -51,6 +51,6 @@ const mapStateToProps = (state) => ({
   message: state.userReducer.message
 })
 
-const mapActions = { axiosUsers, loadToken };
+const mapActions = { axiosUsers, loadToken, clear };
 
 export default connect(mapStateToProps, mapActions)(App); // Connect(props, откуда props)(component который подключаеться)

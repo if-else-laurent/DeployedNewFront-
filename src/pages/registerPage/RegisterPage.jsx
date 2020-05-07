@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import RegisterPageStyle from './RegisterPage.module.css'
 import { registerUser } from '../../actions/userActions';
 import { useDispatch } from 'react-redux';
@@ -8,7 +8,11 @@ import { NavLink } from 'react-router-dom';
 
 
 const RegisterPage = (props) => {
-  const { error, loginLoading, message } = props;
+  const { error, loginLoading, message, clear } = props;
+
+  useEffect(() => {
+    clear()
+  }, []);
 
   const dispatch = useDispatch();
 

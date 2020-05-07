@@ -8,7 +8,11 @@ import { NavLink } from 'react-router-dom';
 
 
 const AuthPage = (props) => {
-  const { error, loginLoading, message } = props;
+  const { error, loginLoading, message, clear } = props;
+
+  useEffect(() => {
+    clear()
+  }, []);
 
   const dispatch = useDispatch();
 

@@ -12,6 +12,7 @@ import {
   ERROR_LOGIN_USER,
   LOGOUT_USER,
   LOAD_TOKEN,
+  CLEAR_ERROR_MESSAGE,
 
 } from './types'
 import axios from 'axios';
@@ -144,6 +145,19 @@ export const logOutUser = () => {
       dispatch({
         type: LOGOUT_USER,
         payload: null,
+      })
+    }
+    catch (err) {
+
+    }
+  }
+}
+
+export const clear = () => {
+  return async dispatch => {
+    try {
+      dispatch({
+        type: CLEAR_ERROR_MESSAGE,
       })
     }
     catch (err) {
