@@ -15,6 +15,8 @@ const UserPageEdit = (props) => {
   const {
     users,
     match,
+    message,
+    error
   } = props;
 
   const dispatch = useDispatch()
@@ -29,7 +31,7 @@ const UserPageEdit = (props) => {
   const [address, setAddress] = useState((userForEdit.address) ? (userForEdit.address) : ({}))
 
 
-  console.log(form)
+  // console.log(form)
   // console.log('company', company)
   // console.log('address', address)
 
@@ -50,7 +52,7 @@ const UserPageEdit = (props) => {
     if (form.name && form.email && form.username) {
       const editedUser = { ...form, company, address }
       dispatch(editUser(editedUser))
-      console.log('click', editedUser)
+      // console.log('click', editedUser)
     }
   }
 
@@ -65,7 +67,7 @@ const UserPageEdit = (props) => {
           <div className={UserPageEditStyle.container__main}>
             <UserAvatar className={UserPageEditStyle.avatar} avatar={form.avatar} />
             <div className={UserPageEditStyle.container__item}>
-              <h3 className={UserPageEditStyle.header}> Edit: </h3>
+              <h3 className={UserPageEditStyle.header}> Edit data: </h3>
               <form className={UserPageEditStyle.form}>
 
                 <div className={UserPageEditStyle.form_main}>
@@ -131,11 +133,16 @@ const UserPageEdit = (props) => {
                   </div>
                 </div>
               </div>
+              <div className={UserPageEditStyle.footer}>
+                <span className={UserPageEditStyle.message}> {message && <> {message}</>} </span>
+                <span className={UserPageEditStyle.message}> {error && <> {error}</>} </span>
+              </div>
               <button className={UserPageEditStyle.button} onClick={(e) => ClickHandler(e)}> Save </button>
+
             </form>
 
           </div>
-          <Link className={`${UserPageEditStyle.linkReturn} orange`} to='/'>
+          <Link className={`${UserPageEditStyle.linkReturn} orange`} to={`/${userForEdit._id}`}>
             Return
           </Link>
         </div>
@@ -148,6 +155,8 @@ const UserPageEdit = (props) => {
 
 const mapStateToProps = (state) => ({
   users: state.userReducer.users,
+  message: state.userReducer.message,
+  error: state.userReducer.error
 })
 
 const mapActions = { axiosUsers };

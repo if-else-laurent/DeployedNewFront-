@@ -38,8 +38,6 @@
 
 
 
-
-
 .avatar img {
   width: 250px;
   border-radius: 5%;
@@ -55,21 +53,12 @@
 }
 
 
-
-
-
 .about {
-  /* display: flex;
-  flex-flow: nowrap column;
-  align-items: center; */
-  /* max-width: 500px; */
   border: rgba(0, 0, 0, 0.527) solid;
   background-color: rgb(50, 61, 61);
+  margin-bottom: 30px;
 }
 
-/* .container__about {
-  border: solid rgba(0, 0, 0, 0.527);
-} */
 
 .about__header {
   text-align: center;
@@ -78,12 +67,10 @@
 }
 
 .about__form {
-  /* width: 500px; */
   margin: 10px 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 5px;
-  /* border: orange solid; */
   text-align: center;
 }
 
@@ -95,29 +82,35 @@
   padding: 2px;
   text-decoration: none;
   border: solid;
-  right: 5px;
-  top:6px;
   color: orange;
   background-color: black;
-  margin-left: 10px;
   width: 50px;
+  position: absolute;
+  right: 13px;
+  bottom: 12px;
 }
 
 .button:hover {
   background-color: orange;
   color: black;
   border: solid orange;
+  
 }
 
 
-.container__about button {
-  position: relative;
-  left: 660px;
-  margin-bottom: 10px;
+.footer {
+  position: absolute;
+  right: 80px;
+  bottom: 13px;
+  
 }
 
-.container__main button {
-  position: relative;
-  left: 370px;
-  top: 50px;
+.message {
+  color: orange;
+
 }
+
+.error {
+  color: rgba(255, 0, 0, 0.842);
+}
+
