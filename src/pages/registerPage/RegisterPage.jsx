@@ -51,11 +51,11 @@ const RegisterPage = (props) => {
         <div className={RegisterPageStyle.inner}>
           <form onSubmit={handleSubmit} className={RegisterPageStyle.form}>
             <label htmlFor='email'> Email: </label>
-            <input disabled={loginLoading} placeholder='example@mail.com' type='email' name='email' onChange={(e) => changeHandler(e)} />
+            <input disabled={loginLoading} required placeholder='example@mail.com' type='email' name='email' onChange={(e) => changeHandler(e)} />
             <label htmlFor='password'> Password: </label>
-            <input disabled={loginLoading} type='password' name='password' onChange={(e) => changeHandler(e)} />
+            <input disabled={loginLoading} required type='password' name='password' onChange={(e) => changeHandler(e)} />
             <label htmlFor='password'> Confirm password: </label>
-            <input disabled={loginLoading} type='password' name='password' onChange={(e) => changePasswordHandler(e)} />
+            <input disabled={loginLoading} required type='password' name='password' onChange={(e) => changePasswordHandler(e)} />
             {(error || message) && <Message error={error} message={message} />}
             <button disabled={loginLoading} className={RegisterPageStyle.button}> Register </button>
           </form>
