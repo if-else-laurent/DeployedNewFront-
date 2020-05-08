@@ -15,7 +15,7 @@ import {
   LOGOUT_USER,
   LOAD_TOKEN,
   CLEAR_ERROR_MESSAGE,
-  SET_ERROR
+  SET_ERROR,
 } from './types'
 import axios from 'axios';
 
@@ -167,7 +167,6 @@ export const logOutUser = () => {
       localStorage.removeItem('userData')
       dispatch({
         type: LOGOUT_USER,
-        payload: null,
       })
     }
     catch (err) {

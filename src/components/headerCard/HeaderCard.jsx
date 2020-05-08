@@ -16,7 +16,7 @@ const Header = (props) => {
       <div className={HeaderCardStyle.inner}>
         <UserAvatar className={HeaderCardStyle.avatar} avatar={user.avatar} />
         <div className={HeaderCardStyle.inner__item}>
-          <h3>
+          <h3 className={HeaderCardStyle.header}>
             User: <span className='orange'>{user.name}</span> ({user.username})
           </h3>
           <div>

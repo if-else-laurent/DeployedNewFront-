@@ -5,7 +5,7 @@ const Contacts = (props) => {
   const { phone, website } = props;
   return (
     <div className={ContactsStyle.container}>
-      <h3 className='contacts'> Contacts </h3>
+      <h3> Contacts </h3>
       <div> <span className={ContactsStyle.position}> Number</span>:  {(phone) ? (phone) : (null)} </div>
       <div> <span className={ContactsStyle.position}> Personal page</span>:  <a className='orange' href='#'>{(website) ? (website) : (null)}</a> </div>
       {/* <div>Number: {phone}</div>
