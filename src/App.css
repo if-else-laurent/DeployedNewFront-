@@ -12,19 +12,19 @@ body {
     background-size: cover;
     background-attachment:fixed;
 }
-
+/* 
 input {
     height: 18px;
-}
+} */
 
 /* label {
     font-size: 14px;
 } */
 
-button {
+/* button {
     font-size: 16px;
     font-weight: 600;
-}
+} */
 
 .app {
     color: white; 
