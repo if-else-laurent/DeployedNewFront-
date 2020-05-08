@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import RegisterPageStyle from './RegisterPage.module.css'
-import { registerUser } from '../../actions/userActions';
+import { registerUser, setError } from '../../actions/userActions';
 import { useDispatch } from 'react-redux';
 import Message from '../../components/message/Message';
 import Loading from '../../components/loading/Loading';
@@ -26,10 +26,8 @@ const RegisterPage = (props) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
   const changePasswordHandler = (e) => {
-    setconfirmPassword(e.target.value)
+    setconfirmPassword((e.target.value))
   }
-
-  // const errorConfirm = 'min length of password 6 sign'
 
   console.log(confirmPassword)
 
@@ -38,8 +36,8 @@ const RegisterPage = (props) => {
     if (form.password.length >= 6) {
       if ((form.password === confirmPassword)) {
         dispatch(registerUser(form))
-      } return
-    }
+      } else dispatch(setError('Passwords differ'))
+    } else dispatch(setError('Min length of password 6 symbols'))
   }
 
 

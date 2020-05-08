@@ -18,3 +18,4 @@ export const LOAD_TOKEN = 'LOAD_TOKEN'
 export const LOGOUT_USER = 'LOGOUT_USER';
 
 export const CLEAR_ERROR_MESSAGE = 'CLEAR_ERROR_MESSAGE';
+export const SET_ERROR = 'SET_ERROR';

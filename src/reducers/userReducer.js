@@ -15,6 +15,7 @@ import {
   LOGOUT_USER,
   LOAD_TOKEN,
   CLEAR_ERROR_MESSAGE,
+  SET_ERROR,
 } from '../actions/types'
 
 const initialState = {
@@ -130,6 +131,11 @@ export default function (state = initialState, action) {
         ...state,
         message: null,
         error: null,
+      }
+    case SET_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       }
     default:
       return state;
