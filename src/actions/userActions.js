@@ -87,7 +87,7 @@ export function editUser(editUser) {
       const data = await JSON.parse(localStorage.getItem('userData'))
 
       const headers = { authToken: data.token }
-      const res = await axios.post(`${process.env.REACT_APP_API}/api/${editUser._id}/edit`, editUser, {
+      const res = await axios.post(`${process.env.REACT_APP_API}/${editUser._id}/edit`, editUser, {
         headers: headers
       })
       dispatch({
