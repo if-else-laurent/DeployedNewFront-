@@ -39,7 +39,7 @@ const AuthPage = (props) => {
         <div className={AuthPageStyle.inner}>
           <form onSubmit={handleSubmit} className={AuthPageStyle.form}>
             <label htmlFor='email'> Email: </label>
-            <input disabled={loginLoading} type='email' name='email' onChange={(e) => changeHandler(e)} />
+            <input disabled={loginLoading} placeholder='example@mail.com' type='email' name='email' onChange={(e) => changeHandler(e)} />
             <label htmlFor='password'> Password: </label>
             <input disabled={loginLoading} type='password' name='password' onChange={(e) => changeHandler(e)} />
             {(error || message) && <Message error={error} message={message} />}
