@@ -5,9 +5,11 @@ const Geo = (props) => {
   const { address } = props;
   return (
     <div className={GeoStyle.container}>
-      <h5 className='orange'>GEO</h5>
-      <div> LAT: {(address) ? (address.lat) : (null)} </div>
-      <div> LNG: {(address) ? (address.lng) : (null)} </div>
+      <h3 className='orange'>GEO</h3>
+      <div> <span className={GeoStyle.position}> LAT</span>:  {(address) ? (address.lat) : (null)} </div>
+      <div> <span className={GeoStyle.position}> LNG</span>:  {(address) ? (address.lng) : (null)} </div>
+      {/* <div> LAT: {(address) ? (address.lat) : (null)} </div>
+      <div> LNG: {(address) ? (address.lng) : (null)} </div> */}
     </div>
   )
 }

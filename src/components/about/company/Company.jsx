@@ -5,10 +5,13 @@ const Company = (props) => {
   const { company } = props;
   return (
     <div className={CompanyStyle.container}>
-      <h4> Company </h4>
-      <div> Company: {(company) ? (company.name) : (null)} </div>
+      <h3> Company </h3>
+      <div> <span className={CompanyStyle.position}> Company</span>:  {(company) ? (company.name) : (null)} </div>
+      <div> <span className={CompanyStyle.position}> Catch phrase</span>:  {(company) ? (company.catchPhrase) : (null)} </div>
+      <div> <span className={CompanyStyle.position}> Bs</span>:  {(company) ? (company.bs) : (null)} </div>
+      {/* <div> Company: {(company) ? (company.name) : (null)} </div>
       <div> Catch phrase: {(company) ? (company.catchPhrase) : (null)} </div>
-      <div> BS: {(company) ? (company.bs) : (null)} </div>
+      <div> BS: {(company) ? (company.bs) : (null)} </div> */}
     </div>
   )
 }

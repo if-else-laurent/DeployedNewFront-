@@ -62,6 +62,11 @@ export default function (state = initialState, action) {
         users: action.payload,
         message: 'Changes saved'
       }
+    case ERROR_EDIT_USER:
+      return {
+        ...state,
+        error: 'Saving failed',
+      }
     case BEGIN_REGISTER_USER:
       return {
         ...state,

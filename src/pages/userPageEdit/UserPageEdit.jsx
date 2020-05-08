@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-// import EditAbout from '../../components/editAbout/EditAbout'
-// import EditHeader from '../../components/editHeader/EditHeader';
 import { Link } from 'react-router-dom';
 import UserAvatar from '../../components/userAvatar/UserAvatar';
 
@@ -67,7 +65,7 @@ const UserPageEdit = (props) => {
           <div className={UserPageEditStyle.container__main}>
             <UserAvatar className={UserPageEditStyle.avatar} avatar={form.avatar} />
             <div className={UserPageEditStyle.container__item}>
-              <h3 className={UserPageEditStyle.header}> Edit data: </h3>
+              <h3 className={UserPageEditStyle.header}> Edit user: </h3>
               <form className={UserPageEditStyle.form}>
 
                 <div className={UserPageEditStyle.form_main}>

@@ -4,6 +4,7 @@ export const ERROR_LOAD_AXIOS_USERS = 'ERROR_LOAD_AXIOS_USERS';
 export const DELETE_USER = 'DELETE_USERS';
 export const ADD_USER = 'ADD_USER';
 export const EDIT_USER = 'EDIT_USER';
+export const ERROR_EDIT_USER = 'ERROR_EDIT_USER';
 
 export const BEGIN_REGISTER_USER = 'BEGIN_REGISTER_USER'
 export const REGISTER_USER = 'REGISTER_USER';

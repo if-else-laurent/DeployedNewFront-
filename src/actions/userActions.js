@@ -3,6 +3,7 @@ import {
   DELETE_USER,
   ADD_USER,
   EDIT_USER,
+  ERROR_EDIT_USER,
   BEGIN_LOAD_AXIOS_USERS,
   ERROR_LOAD_AXIOS_USERS,
   ERROR_REGISTER_USER,
@@ -96,7 +97,7 @@ export function editUser(editUser) {
       })
     }
     catch (err) {
-      dispatch({ type: ERROR_LOAD_AXIOS_USERS, payload: err })
+      dispatch({ type: ERROR_EDIT_USER, payload: err })
     }
 
   }

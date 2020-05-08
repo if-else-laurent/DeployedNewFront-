@@ -5,11 +5,11 @@ const Address = (props) => {
   const { address } = props;
   return (
     <div className={AddressStyle.container}>
-      <h4>Address</h4>
-      <div> Street: {(address) ? (address.street) : (null)} </div>
-      <div> Suite: {(address) ? (address.suite) : (null)} </div>
-      <div> City: {(address) ? (address.city) : (null)} </div>
-      <div> Zipcode: {(address) ? (address.zipcode) : (null)} </div>
+      <h3>Address</h3>
+      <div> <span className={AddressStyle.position}> Street</span>:  {(address) ? (address.street) : (null)} </div>
+      <div> <span className={AddressStyle.position}> Suite</span>:  {(address) ? (address.suite) : (null)} </div>
+      <div> <span className={AddressStyle.position}> City</span>:  {(address) ? (address.city) : (null)} </div>
+      <div> <span className={AddressStyle.position}> Zipcode</span>:  {(address) ? (address.zipcode) : (null)} </div>
     </div>
   )
 }
