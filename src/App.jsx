@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import UserPage from './pages/userPage/UserPage';
 import UsersPage from './pages/usersPage/UsersPage';
+import UserPageEdit from './pages/userPageEdit/UserPageEdit'
 
 import { connect } from 'react-redux';
 import { axiosUsers, loadToken, clear } from '../src/actions/userActions';
@@ -12,7 +13,13 @@ import RegisterPage from './pages/registerPage/RegisterPage'
 
 
 const App = (props) => {
-  const { axiosUsers, token, loginLoading, message, error, loadToken, clear } = props;
+  const { axiosUsers,
+    token,
+    loginLoading,
+    message,
+    error,
+    loadToken,
+    clear } = props;
 
   useEffect(() => {
     loadToken();
@@ -25,6 +32,7 @@ const App = (props) => {
           <div className='mainPage'>
             <Route exact path='/' render={(props) => <UsersPage {...props} token={token} axiosUsers={axiosUsers} />} />
             <Route exact path='/:id' render={(props) => <UserPage {...props} />} />
+            <Route exact path='/:id/edit' render={(props) => <UserPageEdit {...props} />} />
             <Redirect to='/' />
           </div>
         </div>
