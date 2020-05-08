@@ -7,7 +7,9 @@ import UserAvatar from '../../components/userAvatar/UserAvatar';
 import UserPageEditStyle from './UserPageEdit.module.css';
 
 import { connect } from 'react-redux';
-import { axiosUsers } from '../../actions/userActions';
+import { axiosUsers, editUser } from '../../actions/userActions';
+import { useDispatch } from 'react-redux';
+
 
 const UserPageEdit = (props) => {
   const {
@@ -15,20 +17,41 @@ const UserPageEdit = (props) => {
     match,
   } = props;
 
+  const dispatch = useDispatch()
+
+  const user = users.filter((user) => user._id == match.params.id);
+  const userForEdit = user[0]
+
+  // console.log(userForEdit)
+
+  const [form, setForm] = useState(userForEdit)
+  const [company, setCompany] = useState((userForEdit.company) ? (userForEdit.company) : ({}))
+  const [address, setAddress] = useState((userForEdit.address) ? (userForEdit.address) : ({}))
 
 
-  const UserPageEdit = users.filter((user) => user._id == match.params.id);
-
-  const [form, setForm] = useState(UserPageEdit[0])
-  // console.log(form)
+  console.log(form)
+  // console.log('company', company)
+  // console.log('address', address)
 
   const changeHandler = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
+  const changeHandlerCompany = (e) => {
+    setCompany({ ...company, [e.target.name]: e.target.value })
+  }
+
+  const changeHandlerAddress = (e) => {
+    setAddress({ ...address, [e.target.name]: e.target.value })
+  }
+
   const ClickHandler = (e) => {
     e.preventDefault()
-
+    if (form.name && form.email && form.username) {
+      const editedUser = { ...form, company, address }
+      dispatch(editUser(editedUser))
+      console.log('click', editedUser)
+    }
   }
 
 
@@ -47,11 +70,11 @@ const UserPageEdit = (props) => {
 
                 <div className={UserPageEditStyle.form_main}>
                   <label> Name: </label>
-                  <input name='name' value={form.name} onChange={(e) => changeHandler(e)} />
+                  <input name='name' value={form.name || ''} onChange={(e) => changeHandler(e)} />
                   <label> UserName: </label>
-                  <input name='username' value={form.username} onChange={(e) => changeHandler(e)} />
+                  <input name='username' value={form.username || ''} onChange={(e) => changeHandler(e)} />
                   <label> Email: </label>
-                  <input name='email' value={form.email} onChange={(e) => changeHandler(e)} />
+                  <input name='email' value={form.email || ''} onChange={(e) => changeHandler(e)} />
                 </div>
 
               </form>
@@ -66,9 +89,9 @@ const UserPageEdit = (props) => {
                   <h4 className={UserPageEditStyle.about__header}> Contacts </h4>
                   <div className={UserPageEditStyle.about__form}>
                     <label> Phone: </label>
-                    <input name='phone' value={form.phone} onChange={(e) => changeHandler(e)} />
+                    <input name='phone' value={form.phone || ''} onChange={(e) => changeHandler(e)} />
                     <label> Web site: </label>
-                    <input name='website' value={form.website} onChange={(e) => changeHandler(e)} />
+                    <input name='website' value={form.website || ''} onChange={(e) => changeHandler(e)} />
                   </div>
                 </div>
 
@@ -76,11 +99,11 @@ const UserPageEdit = (props) => {
                   <h4 className={UserPageEditStyle.about__header}> Company </h4>
                   <div className={UserPageEditStyle.about__form}>
                     <label> Company: </label>
-                    <input name='company' value={form.company} onChange={(e) => changeHandler(e)} />
+                    <input name='name' value={company.name || ''} onChange={(e) => changeHandlerCompany(e)} />
                     <label> CatchPhrase: </label>
-                    <input name='catchPhrase' value={form.catchPhrase} onChange={(e) => changeHandler(e)} />
+                    <input name='catchPhrase' value={company.catchPhrase || ''} onChange={(e) => changeHandlerCompany(e)} />
                     <label> BS: </label>
-                    <input name='bs' value={form.bs} onChange={(e) => changeHandler(e)} />
+                    <input name='bs' value={company.bs || ''} onChange={(e) => changeHandlerCompany(e)} />
                   </div>
                 </div>
 
@@ -88,13 +111,13 @@ const UserPageEdit = (props) => {
                   <h4 className={UserPageEditStyle.about__header}> Address </h4>
                   <div className={UserPageEditStyle.about__form}>
                     <label> Street: </label>
-                    <input name='street' value={form.street} onChange={(e) => changeHandler(e)} />
+                    <input name='street' value={address.street || ''} onChange={(e) => changeHandlerAddress(e)} />
                     <label> Suite: </label>
-                    <input name='suite' value={form.suite} onChange={(e) => changeHandler(e)} />
+                    <input name='suite' value={address.suite || ''} onChange={(e) => changeHandlerAddress(e)} />
                     <label> City: </label>
-                    <input name='city' value={form.city} onChange={(e) => changeHandler(e)} />
+                    <input name='city' value={address.city || ''} onChange={(e) => changeHandlerAddress(e)} />
                     <label> Zipcode: </label>
-                    <input name='zipcode' value={form.zipcode} onChange={(e) => changeHandler(e)} />
+                    <input name='zipcode' value={address.zipcode || ''} onChange={(e) => changeHandlerAddress(e)} />
                   </div>
                 </div>
 
@@ -102,9 +125,9 @@ const UserPageEdit = (props) => {
                   <h4 className={UserPageEditStyle.about__header}> GEO </h4>
                   <div className={UserPageEditStyle.about__form}>
                     <label> LAT: </label>
-                    <input name='lat' value={form.lat} onChange={(e) => changeHandler(e)} />
+                    <input name='lat' value={address.lat || ''} onChange={(e) => changeHandlerAddress(e)} />
                     <label> LNG: </label>
-                    <input name='lng' value={form.ing} onChange={(e) => changeHandler(e)} />
+                    <input name='lng' value={address.lng || ''} onChange={(e) => changeHandlerAddress(e)} />
                   </div>
                 </div>
               </div>

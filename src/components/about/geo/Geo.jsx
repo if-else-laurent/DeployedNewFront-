@@ -6,8 +6,8 @@ const Geo = (props) => {
   return (
     <div className={GeoStyle.container}>
       <h5 className='orange'>GEO</h5>
-      <div> LAT: {(address) ? (address.geo.lat) : (null)} </div>
-      <div> LNG: {(address) ? (address.geo.lng) : (null)} </div>
+      <div> LAT: {(address) ? (address.lat) : (null)} </div>
+      <div> LNG: {(address) ? (address.lng) : (null)} </div>
     </div>
   )
 }

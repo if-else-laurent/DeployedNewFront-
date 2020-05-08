@@ -2,6 +2,7 @@ import {
   AXIOS_USERS,
   DELETE_USER,
   ADD_USER,
+  EDIT_USER,
   BEGIN_LOAD_AXIOS_USERS,
   ERROR_LOAD_AXIOS_USERS,
   ERROR_REGISTER_USER,
@@ -13,7 +14,6 @@ import {
   LOGOUT_USER,
   LOAD_TOKEN,
   CLEAR_ERROR_MESSAGE,
-
 } from './types'
 import axios from 'axios';
 
@@ -71,6 +71,27 @@ export function addUser(newUser, token) {
       })
       dispatch({
         type: ADD_USER,
+        payload: res.data.reverse()
+      })
+    }
+    catch (err) {
+      dispatch({ type: ERROR_LOAD_AXIOS_USERS, payload: err })
+    }
+
+  }
+}
+
+export function editUser(editUser) {
+  return async dispatch => {
+    try {
+      const data = await JSON.parse(localStorage.getItem('userData'))
+
+      const headers = { authToken: data.token }
+      const res = await axios.post(`${process.env.REACT_APP_API}/api/${editUser._id}/edit`, editUser, {
+        headers: headers
+      })
+      dispatch({
+        type: EDIT_USER,
         payload: res.data.reverse()
       })
     }

@@ -2,6 +2,7 @@ import {
   AXIOS_USERS,
   DELETE_USER,
   ADD_USER,
+  EDIT_USER,
   BEGIN_LOAD_AXIOS_USERS,
   ERROR_LOAD_AXIOS_USERS,
   ERROR_REGISTER_USER,
@@ -51,6 +52,11 @@ export default function (state = initialState, action) {
         users: action.payload
       }
     case ADD_USER:
+      return {
+        ...state,
+        users: action.payload
+      }
+    case EDIT_USER:
       return {
         ...state,
         users: action.payload
