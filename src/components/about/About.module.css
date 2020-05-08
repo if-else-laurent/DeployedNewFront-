@@ -12,3 +12,22 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.button    {
+  padding: 2px;
+  text-decoration: none;
+  border: solid;
+  left: 550px;
+  color: orange;
+  background-color: black;
+  margin-left: 10px;
+  width: 50px;
+  position: relative;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: orange;
+  color: black;
+  border: solid orange;
+}

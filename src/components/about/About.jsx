@@ -14,7 +14,11 @@ const About = (props) => {
   } = props;
   return (
     <div className={AboutStyle.container}>
-      <h3 className={`${AboutStyle.header} orange`}>Information </h3>
+      <h3 className={`${AboutStyle.header} orange`}>Information
+        <NavLink to={`/${userId}/edit`}>
+          <button className={AboutStyle.button}> edit </button>
+        </NavLink>
+      </h3>
       <div className={AboutStyle.inner}>
         <Contacts phone={phone} website={website} />
         <Company company={company} />
