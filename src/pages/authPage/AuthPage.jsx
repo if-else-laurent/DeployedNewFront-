@@ -26,6 +26,7 @@ const AuthPage = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(loginUser(form))
   }
 
   return (
@@ -42,7 +43,7 @@ const AuthPage = (props) => {
             <label htmlFor='password'> Password: </label>
             <input disabled={loginLoading} type='password' name='password' onChange={(e) => changeHandler(e)} />
             {(error || message) && <Message error={error} message={message} />}
-            <button disabled={loginLoading} className={AuthPageStyle.button} onClick={() => dispatch(loginUser(form))}> Login </button>
+            <button disabled={loginLoading} className={AuthPageStyle.button}> Login </button>
           </form>
         </div>
       </div>

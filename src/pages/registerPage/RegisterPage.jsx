@@ -20,13 +20,28 @@ const RegisterPage = (props) => {
     email: '', password: ''
   })
 
+  const [confirmPassword, setconfirmPassword] = useState('')
+
   const changeHandler = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
+  const changePasswordHandler = (e) => {
+    setconfirmPassword(e.target.value)
+  }
+
+  // const errorConfirm = 'min length of password 6 sign'
+
+  console.log(confirmPassword)
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (form.password.length >= 6) {
+      if ((form.password === confirmPassword)) {
+        dispatch(registerUser(form))
+      } return
+    }
   }
+
 
   return (
     <div>
@@ -41,8 +56,10 @@ const RegisterPage = (props) => {
             <input disabled={loginLoading} type='email' name='email' onChange={(e) => changeHandler(e)} />
             <label htmlFor='password'> Password: </label>
             <input disabled={loginLoading} type='password' name='password' onChange={(e) => changeHandler(e)} />
+            <label htmlFor='password'> Confirm password: </label>
+            <input disabled={loginLoading} type='password' name='password' onChange={(e) => changePasswordHandler(e)} />
             {(error || message) && <Message error={error} message={message} />}
-            <button disabled={loginLoading} className={RegisterPageStyle.button} onClick={() => dispatch(registerUser(form))}> Register </button>
+            <button disabled={loginLoading} className={RegisterPageStyle.button}> Register </button>
           </form>
         </div>
       </div>
