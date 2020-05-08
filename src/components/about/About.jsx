@@ -4,9 +4,11 @@ import Company from './company/Company';
 import Address from './address/Address';
 import Geo from './geo/Geo';
 import AboutStyle from './About.module.css';
+import { NavLink } from 'react-router-dom';
 
 const About = (props) => {
   const {
+    userId,
     phone,
     website,
     company,

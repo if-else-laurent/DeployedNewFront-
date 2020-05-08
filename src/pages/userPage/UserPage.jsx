@@ -22,7 +22,7 @@ const UserPage = (props) => {
         return (
           <div key={user._id} className={UserPageStyle.inner}>
             <HeaderPage avatar={user.avatar} name={user.name} username={user.username} email={user.email} />
-            <About phone={user.phone} website={user.website} company={user.company} address={user.address} />
+            <About userId={user._id} phone={user.phone} website={user.website} company={user.company} address={user.address} />
           </div>
         )
       })
