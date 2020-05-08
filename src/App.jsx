@@ -30,8 +30,8 @@ const App = (props) => {
       <Router>
         <div className='app'>
           <div className='mainPage'>
-            <Route exact path='/' render={(props) => <UsersPage {...props} token={token} axiosUsers={axiosUsers} />} />
-            <Route exact path='/:id' render={(props) => <UserPage {...props} />} />
+            <Route exact path='/' render={(props) => <UsersPage {...props} token={token} axiosUsers={axiosUsers} clear={clear} />} />
+            <Route exact path='/:id' render={(props) => <UserPage {...props} clear={clear} />} />
             <Route exact path='/:id/edit' render={(props) => <UserPageEdit {...props} />} />
             <Redirect to='/' />
           </div>

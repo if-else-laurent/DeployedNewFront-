@@ -6,12 +6,18 @@ import UserPageStyle from './UserPage.module.css';
 
 import { connect } from 'react-redux';
 import { axiosUsers } from '../../actions/userActions';
+import { useEffect } from 'react';
 
 const UserPage = (props) => {
   const {
     users,
     match,
+    clear,
   } = props;
+
+  useEffect(() => {
+    clear()
+  }, []);
 
   const userPage = users.filter((user) => user._id == match.params.id);
 

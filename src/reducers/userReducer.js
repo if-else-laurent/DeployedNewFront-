@@ -59,7 +59,8 @@ export default function (state = initialState, action) {
     case EDIT_USER:
       return {
         ...state,
-        users: action.payload
+        users: action.payload,
+        message: 'Changes saved'
       }
     case BEGIN_REGISTER_USER:
       return {
