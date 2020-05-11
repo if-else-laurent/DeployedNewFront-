@@ -70,11 +70,11 @@ const UserPageEdit = (props) => {
 
                 <div className={UserPageEditStyle.form_main}>
                   <label> Name: </label>
-                  <input name='name' value={form.name || ''} onChange={(e) => changeHandler(e)} />
+                  <input name='name' required autoFocus value={form.name || ''} onChange={(e) => changeHandler(e)} />
                   <label> UserName: </label>
-                  <input name='username' value={form.username || ''} onChange={(e) => changeHandler(e)} />
+                  <input name='username' required value={form.username || ''} onChange={(e) => changeHandler(e)} />
                   <label> Email: </label>
-                  <input name='email' value={form.email || ''} onChange={(e) => changeHandler(e)} />
+                  <input name='email' required value={form.email || ''} type='email' onChange={(e) => changeHandler(e)} />
                 </div>
 
               </form>

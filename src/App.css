@@ -12,9 +12,24 @@ body {
     background-size: cover;
     background-attachment:fixed;
 }
-/* 
+
 input {
     height: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 4px;
+}
+
+input:focus {
+    border-color: orange;
+    outline: none;
+  }
+
+  
+
+/* button {
+    font-size: 16px;
+    padding: 0 5px;
 } */
 
 /* label {

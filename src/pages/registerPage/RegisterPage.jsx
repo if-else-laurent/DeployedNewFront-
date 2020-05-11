@@ -29,7 +29,7 @@ const RegisterPage = (props) => {
     setconfirmPassword((e.target.value))
   }
 
-  console.log(confirmPassword)
+  // console.log(confirmPassword)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +51,7 @@ const RegisterPage = (props) => {
         <div className={RegisterPageStyle.inner}>
           <form onSubmit={handleSubmit} className={RegisterPageStyle.form}>
             <label htmlFor='email'> Email: </label>
-            <input disabled={loginLoading} required placeholder='example@mail.com' type='email' name='email' onChange={(e) => changeHandler(e)} />
+            <input disabled={loginLoading} autoFocus required placeholder='example@mail.com' type='email' name='email' onChange={(e) => changeHandler(e)} />
             <label htmlFor='password'> Password: </label>
             <input disabled={loginLoading} required type='password' name='password' onChange={(e) => changeHandler(e)} />
             <label htmlFor='password'> Confirm password: </label>
